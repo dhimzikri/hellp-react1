@@ -1,15 +1,19 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:lts-bullseye-slim' 
-            args '-p 3000:3000' 
+  agent any
+  tools {nodejs "NodeJS-v18.12.1"}
+  stages {
+    stage('Build') {
+      steps {
+        git 'https://github.com/dhimzikri/hellp-react1.git'
+        echo 'Installing node_modules'
+        bat 'npm install'
+      }
+    }
+    
+    stage('Deploy') {
+        steps {
+            echo 'Running react'
+            bat 'npm start'
         }
     }
-    stages {
-        stage('Build') { 
-            steps {
-                bat 'npm install' 
-            }
-        }
-    }
-}
+  }

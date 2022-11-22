@@ -10,10 +10,10 @@ pipeline {
       }
     }
     
-    stage('Deploy') {
-        steps {
-            echo 'Running react'
-            bat 'npm start'
-        }
-    }
+    // stage('Deploy') {
+    //     steps {
+    //         echo 'Running react'
+    //         bat 'npm start'
+    //     }
+    // }
   }

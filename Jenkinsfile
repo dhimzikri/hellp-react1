@@ -4,17 +4,15 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        git 'https://github.com/dhimzikri/hellp-react1.git'
-        echo 'Installing node_modules'
+        // git 'https://github.com/dhimzikri/hellp-react1.git'
+        // echo 'Installing node_modules'
         bat 'npm install'
       }
     }
-    
-    // stage('Deploy') {
-    //     steps {
-    //         echo 'Running react'
-    //         bat 'npm start'
-    //     }
-    // }
+    stage('Test') { 
+            steps {
+                bat 'npm test' 
+            }
+        }
   }
 }

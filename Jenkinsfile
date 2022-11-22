@@ -12,7 +12,6 @@ pipeline {
     stage('Test') { 
             steps {
                 sh 'test.sh'
-                bat 'test.bat' 
             }
         }
   }

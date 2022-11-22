@@ -12,12 +12,12 @@ pipeline {
                 bat 'test.sh'
             }
         }
-        // stage('Deliver') { 
-        //     steps {
-        //         bat '/jenkins/scripts/deliver.sh' 
-        //         input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-        //         bat '/jenkins/scripts/kill.sh' 
-        //     }
-        // }
+        stage('Deliver') { 
+            steps {
+                bat 'deliver.sh' 
+                input message: 'Finished using the web site? (Click "Proceed" to continue)' 
+                bat 'kill.sh' 
+            }
+        }
     }
 }

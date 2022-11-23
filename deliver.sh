@@ -29,6 +29,7 @@
 # echo 'created your initial Pipeline as a Jenkinsfile.)'
 
 set -x
-npm start
+npm start &
+sleep 1
 echo $! > .pidfile
 set +x

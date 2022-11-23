@@ -1,7 +1,6 @@
 pipeline {
   agent any
   tools {nodejs "NodeJS-v18.12.1"}
-  args '-p 3000:3000'
   stages {
         stage('Build') {
             steps {

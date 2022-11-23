@@ -18,8 +18,7 @@
 # echo 'of the previously run process (i.e. "npm start") and writes this value to'
 # echo 'the file ".pidfile".'
 set -x
-npm start &
-sleep 1
+npm start
 echo $! > .pidfile
 set +x
 

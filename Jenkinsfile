@@ -1,21 +1,21 @@
 pipeline {
   agent any
-  tools {nodejs "NodeJS-v18.12.1"}
+  tools {nodejs "NodeJS"}
   stages {
         stage('Build') {
             steps {
-                bat 'npm install'
-                bat 'npm i kill-port'
+                sh 'npm install'
+                sh 'npm i kill-port'
             }
         }
         stage('Test') {
             steps {
-                bat 'test.sh'
+                sh 'test.sh'
             }
         }
         stage('Deliver') { 
             steps {
-                bat 'deliver.sh' 
+                sh 'deliver.sh' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
                 // bat 'kill.sh' 
             }

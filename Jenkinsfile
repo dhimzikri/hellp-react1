@@ -8,11 +8,6 @@ pipeline {
                 sh 'npm i kill-port'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'test.sh'
-            }
-        }
         stage('Deliver') { 
             steps {
                 sh 'deliver.sh' 

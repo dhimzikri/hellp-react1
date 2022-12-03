@@ -8,11 +8,11 @@ pipeline {
                 sh 'npm i kill-port'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'npm test'
-            }
-        }
+//         stage('Test') {
+//             steps {
+//                 sh 'npm test'
+//             }
+//         }
         stage('Deliver') { 
             steps {
                 sh 'npm start & sleep 1' 

@@ -15,7 +15,8 @@ pipeline {
 //         }
         stage('Deliver') { 
             steps {
-                sh 'npm start & sleep 1' 
+                sh 'npm start'
+//                 sh '& sleep 1' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
                 // bat 'kill.sh' 
             }

@@ -1,25 +1,24 @@
 pipeline {
   agent any
   tools {nodejs "NodeJS"}
-  stages {
+    stages {
         stage('Build') {
             steps {
                 sh 'npm install'
-                sh 'npm i kill-port'
             }
         }
 //         stage('Test') {
-//             steps {
-//                 sh 'npm test'
-//             }
-//         }
-        stage('Deliver') { 
-            steps {
-                sh 'npm start'
-//                 sh '& sleep 1' 
-                input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                // bat 'kill.sh' 
-            }
-        }
+//                     steps {
+//                         sh './jenkins/scripts/test.sh'
+//                     }
+//                 }
+                stage('Deliver') {
+                            steps {
+                                sh './jenkins/scripts/deliver.sh'
+                                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                                sh './jenkins/scripts/kill.sh'
+                            }
+                        }
+
     }
 }
